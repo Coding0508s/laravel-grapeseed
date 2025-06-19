@@ -108,7 +108,7 @@
 </head>
 <body>
     <div class="signup-container">
-        <div class="logo">GrapeSEED</div>
+        <div class="logo"> <img src="{{ asset('images/logo.png') }}" alt="GrapeSEED"></div>
         <h1>GrapeSEED 회원가입</h1>
         
         <form method="POST" action="{{ route('register') }}">

@@ -92,7 +92,7 @@
         }
         
         button:hover {
-            background-color: #461e6d;
+            background-color:rgb(4, 182, 28);
         }
         
         .btn-danger {
@@ -134,7 +134,7 @@
 <body>
     <div class="container">
         <div class="header">
-            <div class="logo">GrapeSEED</div>
+            <div class="logo"><img src="{{ asset('images/logo.png') }}" alt="GrapeSEED"></div>
             <h1>프로필 편집</h1>
         </div>
 
@@ -233,7 +233,7 @@
 
         <div class="section">
             <h2>계정 삭제</h2>
-            <p>계정을 삭제하면 모든 데이터가 영구적으로 삭제됩니다. 계속하기 전에 보관하고 싶은 데이터나 정보를 다운로드하세요.</p>
+            <p>계정을 삭제하면 모든 데이터가 영구적으로 삭제되며 더 이상 로그인 할 수 없게됩니다.</p>
             
             <form method="post" action="{{ route('profile.destroy') }}" onsubmit="return confirm('정말로 계정을 삭제하시겠습니까? 이 작업은 되돌릴 수 없습니다.')">
                 @csrf

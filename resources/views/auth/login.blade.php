@@ -138,7 +138,7 @@
 </head>
 <body>
     <div class="login-container">
-        <div class="logo">GrapeSEED</div>
+        <div class="logo"><img src="{{ asset('images/logo.png') }}" alt="GrapeSEED"></div>
         <h1>Welcome to GrapeSEED</h1>
     
         <!-- Session Status -->

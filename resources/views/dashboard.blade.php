@@ -57,6 +57,13 @@
             border: none;
             border-radius: 0 4px 4px 0;
             cursor: pointer;
+            width: 20%;
+            font-weight: bold;
+        }
+        .search-bar button:hover {
+
+            background-color:rgb(19, 163, 39);
+           
         }
         
         .user-actions {
@@ -92,16 +99,35 @@
             display: flex;
             list-style: none;
             padding: 15px 5%;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            background-color:rgb(133, 95, 170);
+           
+            
         }
         
         nav ul li {
             margin-right: 20px;
+           
         }
         
         nav ul li a {
-            color: #333;
+            padding: 10px;
+            color:#fff;
             text-decoration: none;
             font-weight: 500;
+           
+        }
+        
+        nav ul li:hover {
+            font-weight: 500;
+            background-color:rgb(82, 28, 137);
+            border-radius: 10px;
+           
+            
+            
+
         }
         
         .hero {
@@ -194,8 +220,12 @@
         
         .category-grid {
             display: grid;
+            justify-content: center;
+            align-items: center;
             grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-            gap: 20px;
+            gap: 50px;
+            margin-left: 100px;
+            margin-right: 100px;
         }
         
         .category-card {
@@ -263,7 +293,7 @@
 <body>
     <header>
         <div class="header-top">
-            <div class="logo">GrapeSEED</div>
+            <div class="logo"><img src="{{ asset('images/logo.png') }}" alt="GrapeSEED"></div>
             <div class="search-bar">
                 <input type="text" placeholder="상품을 검색하세요...">
                 <button type="submit">검색</button>
