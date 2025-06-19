@@ -300,7 +300,7 @@
             </div>
             <div class="user-actions">
                 <div class="user-info">{{ Auth::user()->name }}님 환영합니다!</div>
-                <a href="{{ route('profile.edit') }}">프로필</a>
+                <a href="{{ route('profile.edit') }}">회원정보</a>
                 <form method="POST" action="{{ route('logout') }}" style="display: inline;">
                     @csrf
                     <button type="submit">로그아웃</button>
@@ -320,9 +320,9 @@
 
     <section class="hero">
         <div class="hero-content">
-            <h1>Welcome to GrapeSEED</h1>
-            <p>최고의 품질과 스타일을 제공하는 온라인 쇼핑몰</p>
-            <a href="#products" class="btn">쇼핑하기</a>
+            <h1>Welcome to GrapeSEED</h1></br>
+            <p>전 세계 16개국, 900여개의 학교에서약 70,000명의 학생이 GrapeSEED로 영어를 배우고 있습니다.</p>
+            <!-- <a href="#products" class="btn">구매하기</a> -->
         </div>
     </section>
 
