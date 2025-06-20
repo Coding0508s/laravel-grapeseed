@@ -137,45 +137,65 @@
             transform: translateX(5px);
         }
         
-        /* 사이드바 내의 ul li 호버 효과 */
+        /* 사이드바 내의 ul li 호버 효과 - 가로 배치 */
         .sidebar-nav a ul {
             display: none;
-            padding-left: 20px;
-            margin-top: 10px;
+            position: absolute;
+            left: 100%;
+            top: 0;
+            background-color: #fff;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+            border-radius: 8px;
+            padding: 15px;
+            min-width: 300px;
             opacity: 0;
-            transform: translateY(-10px);
+            transform: translateX(-10px);
             transition: all 0.3s ease;
+            z-index: 1000;
+            flex-direction: row;
+            flex-wrap: wrap;
+            gap: 10px;
         }
         
         .sidebar-nav a:hover ul {
-            display: block;
+            display: flex;
             opacity: 1;
-            transform: translateY(0);
+            transform: translateX(0);
         }
         
         .sidebar-nav a ul li {
             list-style: none;
-            margin: 5px 0;
+            margin: 0;
+            flex: 0 0 auto;
         }
         
         .sidebar-nav a ul li a {
-            padding: 8px 15px;
+            padding: 8px 12px;
             margin: 0;
-            font-size: 13px;
+            font-size: 12px;
             color: #666;
-            background-color: transparent;
-            border-left: 3px solid transparent;
-            border-radius: 0 8px 8px 0;
+            background-color: #f8f9fa;
+            border: 1px solid #e0e0e0;
+            border-radius: 6px;
             display: block;
             transform: none;
+            white-space: nowrap;
+            transition: all 0.3s ease;
+            text-align: center;
+            min-width: 80px;
         }
         
         .sidebar-nav a ul li a:hover {
-            background-color: #f8f9fa;
-            color: #5a2c88;
-            border-left-color: #5a2c88;
-            transform: translateX(5px);
-            box-shadow: 0 2px 8px rgba(90, 44, 136, 0.1);
+            background-color: #5a2c88;
+            color: white;
+            border-color: #5a2c88;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(90, 44, 136, 0.3);
+        }
+        
+        /* 메인 메뉴 항목의 position 설정 */
+        .sidebar-nav a {
+            position: relative;
         }
         
         .sidebar-nav svg {
@@ -330,6 +350,62 @@
         nav ul li:hover a {
             color: #fff;
             transform: scale(1.05);
+        }
+        
+        /* 상단 네비게이션 서브메뉴 */
+        nav ul li {
+            position: relative;
+        }
+        
+        nav ul li .submenu {
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: white;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+            border-radius: 8px;
+            padding: 15px;
+            min-width: 250px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateX(-50%) translateY(-10px);
+            transition: all 0.3s ease;
+            z-index: 1000;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        nav ul li:hover .submenu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(-50%) translateY(0);
+        }
+        
+        nav ul li .submenu a {
+            padding: 8px 12px;
+            margin: 0;
+            font-size: 12px;
+            color: #666;
+            background-color: #f8f9fa;
+            border: 1px solid #e0e0e0;
+            border-radius: 6px;
+            text-decoration: none;
+            white-space: nowrap;
+            transition: all 0.3s ease;
+            text-align: center;
+            min-width: 70px;
+            display: block;
+        }
+        
+        nav ul li .submenu a:hover {
+            background-color: #5a2c88;
+            color: white;
+            border-color: #5a2c88;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(90, 44, 136, 0.3);
         }
 
         
@@ -531,28 +607,29 @@
                 </svg>
                 프로필
             </a>
-            <a href="#" class="flex items-center px-4 py-2 text-gray-700 rounded-lg hover:bg-gray-100">
+            <a href="#products">
                 <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"></path>
                 </svg>
                 상품 관리
                 <ul>
-                    <li><a href="#">상품 등록</a></li>
-                    <li><a href="#">상품 목록</a></li>
-                    <li><a href="#">상품 수정</a></li>
-                    <li><a href="#">상품 삭제</a></li>
+                    <li><a href="#add-product">상품 등록</a></li>
+                    <li><a href="#product-list">상품 목록</a></li>
+                    <li><a href="#edit-product">상품 수정</a></li>
+                    <li><a href="#inventory">재고 관리</a></li>
+                    <li><a href="#pricing">가격 관리</a></li>
                 </ul>
             </a>
-            <a href="#categories">
+            <a href="#">
                 <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path>
                 </svg>
                 카테고리
                 <ul>
-                    <li><a href="#">상품 등록</a></li>
-                    <li><a href="#">상품 목록</a></li>
-                    <li><a href="#">상품 수정</a></li>
-                    <li><a href="#">상품 삭제</a></li>
+                    <li><a href="#category-manage">카테고리 관리</a></li>
+                    <li><a href="#category-add">카테고리 추가</a></li>
+                    <li><a href="#category-sort">정렬 관리</a></li>
+                    <li><a href="#category-display">진열 설정</a></li>
                 </ul>
             </a>
             <a href="#orders">
@@ -561,21 +638,24 @@
                 </svg>
                 주문 관리
                 <ul>
-                    <li><a href="#">상품 등록</a></li>
-                    <li><a href="#">상품 목록</a></li>
-                    <li><a href="#">상품 수정</a></li>
-                    <li><a href="#">상품 삭제</a></li>
+                    <li><a href="#orders-list">주문 목록</a></li>
+                    <li><a href="#orders-status">주문 상태</a></li>
+                    <li><a href="#shipping">배송 관리</a></li>
+                    <li><a href="#returns">반품/교환</a></li>
+                    <li><a href="#payment">결제 관리</a></li>
                 </ul>
             </a>
             <a href="#customers">
                 <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197m13.5-9a2.5 2.5 0 11-5 0 2.5 2.5 0 015 0z"></path>
                 </svg>
-                고객 관리 <ul>
-                    <li><a href="#">상품 등록</a></li>
-                    <li><a href="#">상품 목록</a></li>
-                    <li><a href="#">상품 수정</a></li>
-                    <li><a href="#">상품 삭제</a></li>
+                고객 관리
+                <ul>
+                    <li><a href="#customers-list">고객 목록</a></li>
+                    <li><a href="#customer-info">고객 정보</a></li>
+                    <li><a href="#customer-service">고객 서비스</a></li>
+                    <li><a href="#reviews">리뷰 관리</a></li>
+                    <li><a href="#loyalty">멤버십</a></li>
                 </ul>
             </a>
             <a href="#settings">
@@ -615,11 +695,48 @@
             </div>
             <nav>
                 <ul>
-                    <li><a href="#home">홈</a></li>
-                    <li><a href="#products">상품</a></li>
-                    <li><a href="#categories">카테고리</a></li>
-                    <li><a href="#about">회사소개</a></li>
-                    <li><a href="#contact">고객센터</a></li>
+                    <li>
+                        <a href="#home">홈</a>
+                        <div class="submenu">
+                            <a href="#dashboard">대시보드</a>
+                            <a href="#recent">최근 활동</a>
+                            <a href="#quick">빠른 설정</a>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="#products">상품</a>
+                        <div class="submenu">
+                            <a href="#add">상품 등록</a>
+                            <a href="#list">상품 목록</a>
+                            <a href="#category">분류 관리</a>
+                            <a href="#inventory">재고 관리</a>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="#categories">카테고리</a>
+                        <div class="submenu">
+                            <a href="#clothing">의류</a>
+                            <a href="#shoes">신발</a>
+                            <a href="#bags">가방</a>
+                            <a href="#accessories">액세서리</a>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="#about">회사소개</a>
+                        <div class="submenu">
+                            <a href="#history">회사 연혁</a>
+                            <a href="#team">팀 소개</a>
+                            <a href="#vision">비전</a>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="#contact">고객센터</a>
+                        <div class="submenu">
+                            <a href="#faq">자주묻는질문</a>
+                            <a href="#inquiry">1:1 문의</a>
+                            <a href="#support">기술지원</a>
+                        </div>
+                    </li>
                 </ul>
             </nav>
         </header>
