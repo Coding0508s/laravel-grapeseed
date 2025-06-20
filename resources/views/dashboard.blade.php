@@ -86,6 +86,22 @@
             color: #5a2c88;
         }
         
+        /* 서브메뉴가 있는 메뉴 항목 스타일 */
+        .sidebar-nav .menu-item:hover > a {
+            background-color: #5a2c88;
+            color: white;
+        }
+        
+        .sidebar-nav .menu-item:hover > a svg {
+            color: white;
+            transform: rotate(15deg) scale(1.1);
+        }
+        
+        /* 화살표 회전 효과 */
+        .sidebar-nav .menu-item:hover .arrow-down {
+            transform: rotate(180deg) !important;
+        }
+        
         .sidebar-nav a.active {
             background-color: #5a2c88;
             color: white;
@@ -99,59 +115,45 @@
         
 
         
-        /* 사이드바 서브메뉴 - 통일된 스타일 */
+        /* 사이드바 서브메뉴 - 인라인 스타일 */
         .sidebar-nav .menu-item {
             position: relative;
         }
         
         .sidebar-nav .menu-item .submenu {
-            position: absolute;
-            left: 100%;
-            top: 0;
-            background-color: #fff;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-            border-radius: 8px;
-            padding: 15px;
-            min-width: 320px;
-            opacity: 0;
-            visibility: hidden;
-            transform: translateX(-10px);
+            max-height: 0;
+            overflow: hidden;
+            background-color: #f8f9fa;
+            margin: 0 10px;
+            border-radius: 0 0 8px 8px;
             transition: all 0.3s ease;
-            z-index: 1000;
-            display: flex;
-            flex-direction: row;
-            flex-wrap: wrap;
-            gap: 10px;
+            opacity: 0;
         }
         
         .sidebar-nav .menu-item:hover .submenu {
+            max-height: 300px;
             opacity: 1;
-            visibility: visible;
-            transform: translateX(0);
+            padding: 10px 0;
         }
         
         .sidebar-nav .menu-item .submenu a {
-            padding: 8px 12px;
-            margin: 0;
-            font-size: 12px;
-            color: #666;
-            background-color: #f8f9fa;
-            border: 1px solid #e0e0e0;
-            border-radius: 6px;
-            text-decoration: none;
-            white-space: nowrap;
-            transition: all 0.3s ease;
-            text-align: center;
-            min-width: 80px;
             display: block;
+            padding: 8px 20px;
+            margin: 2px 10px;
+            font-size: 13px;
+            color: #666;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            border-left: 3px solid transparent;
         }
         
         .sidebar-nav .menu-item .submenu a:hover {
             background-color: #5a2c88;
             color: white;
-            border-color: #5a2c88;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(90, 44, 136, 0.3);
+            border-left-color: #461e6d;
+            transform: translateX(5px);
+            box-shadow: 0 2px 8px rgba(90, 44, 136, 0.2);
         }
         
         .sidebar-nav svg {
@@ -569,6 +571,9 @@
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"></path>
                     </svg>
                     상품 관리
+                    <svg class="arrow-down" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="width: 16px; height: 16px; margin-left: auto; transition: transform 0.3s ease;">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                    </svg>
                 </a>
                 <div class="submenu">
                     <a href="#add-product">상품 등록</a>
@@ -584,6 +589,9 @@
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path>
                     </svg>
                     카테고리
+                    <svg class="arrow-down" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="width: 16px; height: 16px; margin-left: auto; transition: transform 0.3s ease;">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                    </svg>
                 </a>
                 <div class="submenu">
                     <a href="#category-manage">카테고리 관리</a>
@@ -598,6 +606,9 @@
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"></path>
                     </svg>
                     주문 관리
+                    <svg class="arrow-down" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="width: 16px; height: 16px; margin-left: auto; transition: transform 0.3s ease;">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                    </svg>
                 </a>
                 <div class="submenu">
                     <a href="#orders-list">주문 목록</a>
@@ -613,6 +624,9 @@
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197m13.5-9a2.5 2.5 0 11-5 0 2.5 2.5 0 015 0z"></path>
                     </svg>
                     고객 관리
+                    <svg class="arrow-down" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="width: 16px; height: 16px; margin-left: auto; transition: transform 0.3s ease;">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                    </svg>
                 </a>
                 <div class="submenu">
                     <a href="#customers-list">고객 목록</a>
@@ -629,6 +643,9 @@
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
                     </svg>
                     설정
+                    <svg class="arrow-down" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="width: 16px; height: 16px; margin-left: auto; transition: transform 0.3s ease;">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                    </svg>
                 </a>
                 <div class="submenu">
                     <a href="#general">일반 설정</a>
