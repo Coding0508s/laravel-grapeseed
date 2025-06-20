@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,11 +13,11 @@
             box-sizing: border-box;
             font-family: 'Arial', sans-serif;
         }
-        
+
         body {
             background-color: #f8f9fa;
         }
-        
+
         /* 사이드바 스타일 */
         .sidebar {
             position: fixed;
@@ -25,16 +26,16 @@
             height: 100vh;
             width: 250px;
             background-color: #fff;
-            box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
             z-index: 1000;
             overflow-y: auto;
             transition: transform 0.3s ease;
         }
-        
+
         .sidebar.hidden {
             transform: translateX(-100%);
         }
-        
+
         .sidebar-header {
             text-align: center;
             padding: 20px;
@@ -42,11 +43,11 @@
             background-color: #5a2c88;
             color: white;
         }
-        
+
         .sidebar-nav {
             padding: 20px 0;
         }
-        
+
         .sidebar-nav a {
             display: flex;
             align-items: center;
@@ -59,7 +60,7 @@
             position: relative;
             overflow: hidden;
         }
-        
+
         .sidebar-nav a::before {
             content: '';
             position: absolute;
@@ -70,57 +71,57 @@
             background: linear-gradient(90deg, transparent, rgba(90, 44, 136, 0.1), transparent);
             transition: left 0.5s ease;
         }
-        
+
         .sidebar-nav a:hover {
             background-color: #f8f9fa;
             transform: translateX(10px);
             box-shadow: 0 4px 15px rgba(90, 44, 136, 0.2);
             color: #5a2c88;
         }
-        
+
         .sidebar-nav a:hover::before {
             left: 100%;
         }
-        
+
         .sidebar-nav a:hover svg {
             transform: rotate(15deg) scale(1.1);
             color: #5a2c88;
         }
-        
+
         /* 서브메뉴가 있는 메뉴 항목 스타일 */
-        .sidebar-nav .menu-item:hover > a {
+        .sidebar-nav .menu-item:hover>a {
             background-color: #5a2c88;
             color: white;
         }
-        
-        .sidebar-nav .menu-item:hover > a svg {
+
+        .sidebar-nav .menu-item:hover>a svg {
             color: white;
             transform: rotate(15deg) scale(1.1);
         }
-        
+
         /* 화살표 회전 효과 */
         .sidebar-nav .menu-item:hover .arrow-down {
             transform: rotate(180deg) !important;
         }
-        
+
         .sidebar-nav a.active {
             background-color: #5a2c88;
             color: white;
             transform: translateX(5px);
             box-shadow: 0 4px 20px rgba(90, 44, 136, 0.3);
         }
-        
+
         .sidebar-nav svg {
             transition: all 0.3s ease;
         }
-        
 
-        
+
+
         /* 사이드바 서브메뉴 - 인라인 스타일 */
         .sidebar-nav .menu-item {
             position: relative;
         }
-        
+
         .sidebar-nav .menu-item .submenu {
             max-height: 0;
             overflow: hidden;
@@ -130,13 +131,13 @@
             transition: all 0.3s ease;
             opacity: 0;
         }
-        
+
         .sidebar-nav .menu-item:hover .submenu {
             max-height: 300px;
             opacity: 1;
             padding: 10px 0;
         }
-        
+
         .sidebar-nav .menu-item .submenu a {
             display: block;
             padding: 8px 20px;
@@ -148,7 +149,7 @@
             transition: all 0.3s ease;
             border-left: 3px solid transparent;
         }
-        
+
         .sidebar-nav .menu-item .submenu a:hover {
             background-color: #5a2c88;
             color: white;
@@ -156,23 +157,23 @@
             transform: translateX(5px);
             box-shadow: 0 2px 8px rgba(90, 44, 136, 0.2);
         }
-        
+
         .sidebar-nav svg {
             width: 20px;
             height: 20px;
             margin-right: 10px;
         }
-        
+
         /* 메인 콘텐츠 영역 */
         .main-content {
             margin-left: 250px;
             transition: margin-left 0.3s ease;
         }
-        
+
         .main-content.expanded {
             margin-left: 0;
         }
-        
+
         /* 사이드바 토글 버튼 */
         .sidebar-toggle {
             position: fixed;
@@ -187,19 +188,19 @@
             cursor: pointer;
             transition: left 0.3s ease;
         }
-        
+
         .sidebar-toggle.moved {
             left: 270px;
         }
-        
+
         header {
             background-color: #fff;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
             position: sticky;
             top: 0;
             z-index: 100;
         }
-        
+
         .header-top {
             display: flex;
             justify-content: space-between;
@@ -207,25 +208,25 @@
             padding: 15px 5%;
             border-bottom: 1px solid #eee;
         }
-        
+
         .logo {
             font-size: 24px;
             font-weight: bold;
             color: #5a2c88;
         }
-        
+
         .search-bar {
             display: flex;
             width: 40%;
         }
-        
+
         .search-bar input {
             width: 100%;
             padding: 10px;
             border: 1px solid #ddd;
             border-radius: 4px 0 0 4px;
         }
-        
+
         .search-bar button {
             padding: 10px 15px;
             background-color: #5a2c88;
@@ -236,22 +237,24 @@
             width: 20%;
             font-weight: bold;
         }
+
         .search-bar button:hover {
-            background-color:rgb(19, 163, 39);
+            background-color: rgb(19, 163, 39);
         }
-        
+
         .user-actions {
             display: flex;
             align-items: center;
             gap: 15px;
         }
-        
+
         .user-info {
             color: #5a2c88;
             font-weight: bold;
         }
-        
-        .user-actions a, .user-actions form button {
+
+        .user-actions a,
+        .user-actions form button {
             margin-left: 10px;
             color: #333;
             text-decoration: none;
@@ -264,11 +267,12 @@
             cursor: pointer;
             font-size: 14px;
         }
-        
-        .user-actions a:hover, .user-actions form button:hover {
+
+        .user-actions a:hover,
+        .user-actions form button:hover {
             background-color: #461e6d;
         }
-        
+
         nav ul {
             display: flex;
             list-style: none;
@@ -276,9 +280,9 @@
             justify-content: center;
             align-items: center;
             gap: 20px;
-            background-color:rgb(133, 95, 170);
+            background-color: rgb(133, 95, 170);
         }
-        
+
         nav ul li {
             margin-right: 20px;
             position: relative;
@@ -286,36 +290,36 @@
             opacity: 0.8;
             transform: translateY(0);
         }
-        
+
         nav ul li a {
             padding: 10px 15px;
-            color:#fff;
+            color: #fff;
             text-decoration: none;
             font-weight: 500;
             display: block;
             border-radius: 8px;
             transition: all 0.3s ease;
         }
-        
+
         nav ul li:hover {
             font-weight: 500;
-            background-color:rgb(82, 28, 137);
+            background-color: rgb(82, 28, 137);
             border-radius: 10px;
             opacity: 1;
             transform: translateY(-2px);
             box-shadow: 0 4px 15px rgba(82, 28, 137, 0.4);
         }
-        
+
         nav ul li:hover a {
             color: #fff;
             transform: scale(1.05);
         }
-        
+
         /* 상단 네비게이션 서브메뉴 */
         nav ul li {
             position: relative;
         }
-        
+
         nav ul li .submenu {
             position: absolute;
             top: 100%;
@@ -332,17 +336,17 @@
             transition: all 0.3s ease;
             z-index: 1000;
             display: flex;
-            flex-direction: row;
-            flex-wrap: wrap;
+            flex-direction: column;
+            flex-wrap: nowrap;
             gap: 10px;
         }
-        
+
         nav ul li:hover .submenu {
             opacity: 1;
             visibility: visible;
             transform: translateX(-50%) translateY(0);
         }
-        
+
         nav ul li .submenu a {
             padding: 8px 12px;
             margin: 0;
@@ -358,7 +362,7 @@
             min-width: 70px;
             display: block;
         }
-        
+
         nav ul li .submenu a:hover {
             background-color: #5a2c88;
             color: white;
@@ -367,7 +371,7 @@
             box-shadow: 0 4px 12px rgba(90, 44, 136, 0.3);
         }
 
-        
+
         .hero {
             background: linear-gradient(135deg, #5a2c88, #461e6d);
             height: 400px;
@@ -377,17 +381,17 @@
             color: white;
             text-align: center;
         }
-        
+
         .hero-content h1 {
             font-size: 48px;
             margin-bottom: 20px;
         }
-        
+
         .hero-content p {
             font-size: 18px;
             margin-bottom: 30px;
         }
-        
+
         .btn {
             padding: 12px 25px;
             background-color: #fff;
@@ -398,35 +402,35 @@
             text-decoration: none;
             font-weight: bold;
         }
-        
+
         .products {
             padding: 50px 5%;
         }
-        
+
         .section-title {
             font-size: 28px;
             text-align: center;
             margin-bottom: 30px;
         }
-        
+
         .product-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
             gap: 30px;
         }
-        
+
         .product-card {
             background-color: #fff;
             border-radius: 8px;
             overflow: hidden;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s ease;
         }
-        
+
         .product-card:hover {
             transform: translateY(-5px);
         }
-        
+
         .product-image {
             height: 200px;
             background-color: #f1f1f1;
@@ -436,26 +440,26 @@
             font-size: 16px;
             color: #666;
         }
-        
+
         .product-info {
             padding: 15px;
         }
-        
+
         .product-title {
             font-size: 16px;
             margin-bottom: 5px;
         }
-        
+
         .product-price {
             font-weight: bold;
             color: #5a2c88;
         }
-        
+
         .categories {
             background-color: #f1f1f1;
             padding: 50px 5%;
         }
-        
+
         .category-grid {
             display: grid;
             justify-content: center;
@@ -465,20 +469,20 @@
             margin-left: 100px;
             margin-right: 100px;
         }
-        
+
         .category-card {
             background-color: #fff;
             border-radius: 8px;
             overflow: hidden;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
             text-align: center;
             transition: transform 0.3s ease;
         }
-        
+
         .category-card:hover {
             transform: translateY(-5px);
         }
-        
+
         .category-image {
             height: 150px;
             background-color: #eee;
@@ -488,70 +492,177 @@
             font-size: 16px;
             color: #666;
         }
-        
+
         .category-name {
             padding: 15px;
         }
-        
+
         footer {
             background-color: #333;
             color: white;
             padding: 30px 5%;
             margin-top: 50px;
         }
-        
+
         .footer-content {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
             gap: 30px;
         }
-        
+
         .footer-section h3 {
             margin-bottom: 15px;
         }
-        
+
         .footer-section ul {
             list-style: none;
         }
-        
+
         .footer-section ul li {
             margin-bottom: 8px;
         }
-        
+
         .footer-section ul li a {
             color: #ccc;
             text-decoration: none;
         }
-        
+
         .footer-section ul li a:hover {
             color: white;
         }
-        
+
+        /* Header animation */
+        .hero-content>h1 {
+            position: absolute;
+            top: 40%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            animation: slideup 4s linear infinite;
+        }
+
+        .hero-content>div>h1 {
+            display: block;
+        }
+
+        @keyframes slideup {
+            0% {
+                opacity: 0;
+                margin-top: 50px;
+            }
+
+            20% {
+                opacity: 1;
+                margin-top: 0;
+            }
+
+            80% {
+                opacity: 1;
+                margin-top: 0;
+            }
+
+            100% {
+                opacity: 0;
+                margin-top: 0;
+            }
+        }
+
+        /* 사이드바 헤더 애니메이션 */
+        .sidebar-header>h3>span {
+            display: inline-block;
+        }
+
+        .sidebar-header span {
+         /*    font-weight: 100px; */
+            animation: wave 1.3s ease-in-out;
+            animation-iteration-count: infinite;
+        }
+
+        @keyframes wave {
+
+            0%,
+            40%,
+            100% {
+                transform: translateY(0);
+            }
+
+            20% {
+                transform: translateY(-15px);
+            }
+
+            60% {
+                transform: translateY(-5px);
+            }
+        }
+
+        .sidebar-header span:nth-child(1) {
+            animation-delay: 0.1s;
+        }
+
+        .sidebar-header span:nth-child(2) {
+            animation-delay: 0.10s;
+        }
+
+        .sidebar-header span:nth-child(3) {
+            animation-delay: 0.16s;
+        }
+
+        .sidebar-header span:nth-child(4) {
+            animation-delay: 0.19s;
+        }
+
+        .sidebar-header span:nth-child(5) {
+            animation-delay: 0.22s;
+        }
+        .sidebar-header span:nth-child(6) {
+            animation-delay: 0.27s;
+        }
+        .sidebar-header span:nth-child(7) {
+            animation-delay: 0.30s;
+        }
+        .sidebar-header span:nth-child(8) {
+            animation-delay: 0.36s;
+        }
+        .sidebar-header span:nth-child(9) {
+            animation-delay: 0.42s;
+        }
+
         /* 반응형 */
         @media (max-width: 768px) {
             .sidebar {
                 transform: translateX(-100%);
             }
-            
+
             .sidebar.show {
                 transform: translateX(0);
             }
-            
+
             .main-content {
                 margin-left: 0;
             }
-            
+
             .sidebar-toggle {
                 left: 20px;
             }
         }
     </style>
 </head>
+
 <body x-data="{ sidebarOpen: true }">
     <!-- 사이드바 -->
     <aside class="sidebar" :class="{ 'hidden': !sidebarOpen }">
         <div class="sidebar-header">
-            <h3>GrapeSEED E-Ordering System</h3>
+            <h3>
+                <span>G</span>
+                <span>r</span>
+                <span>a</span>
+                <span>p</span>
+                <span>e</span>
+                <span>S</span>
+                <span>E</span>
+                <span>E</span>
+                <span>D</span>
+            </h3>
         </div>
         <nav class="sidebar-nav">
             <a href="{{ route('dashboard') }}" class="active">
@@ -662,7 +773,7 @@
     <!-- 사이드바 토글 버튼 -->
     <button @click="sidebarOpen = !sidebarOpen" class="sidebar-toggle" :class="{ 'moved': sidebarOpen }">
         <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M3 12h18M3 6h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            <path d="M3 12h18M3 6h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
         </svg>
     </button>
 
@@ -688,7 +799,7 @@
                 <ul>
                     <li>
                         <a href="#home">홈</a>
-                       <!--  <div class="submenu">
+                        <!--  <div class="submenu">
                             <a href="#dashboard">대시보드</a>
                             <a href="#recent">최근 활동</a>
                             <a href="#quick">빠른 설정</a>
@@ -737,8 +848,8 @@
                 <h1>Welcome to GrapeSEED<br>
                     E-Ordering System!<br>
                 </h1></br>
-                
-                <p>전 세계 16개국, 900여개의 학교에서약 70,000명의 학생이 GrapeSEED로 영어를 배우고 있습니다.</p>
+
+                <!-- <p>전 세계 16개국, 900여개의 학교에서약 70,000명의 학생이 GrapeSEED로 영어를 배우고 있습니다.</p> -->
             </div>
         </section>
 
@@ -854,4 +965,5 @@
         </footer>
     </div>
 </body>
+
 </html>
