@@ -411,6 +411,7 @@
             font-size: 28px;
             text-align: center;
             margin-bottom: 30px;
+            color:#461e6d
         }
 
         .product-grid {
@@ -440,6 +441,12 @@
             font-size: 16px;
             color: #666;
         }
+        .product-image img{
+            width: 100%;
+            height: 100%;
+            cursor: pointer;
+            object-fit: contain;
+        }
 
         .product-info {
             padding: 15px;
@@ -448,16 +455,32 @@
         .product-title {
             font-size: 16px;
             margin-bottom: 5px;
+            text-align: center;
         }
 
         .product-price {
             font-weight: bold;
             color: #5a2c88;
+            text-align: center;
         }
 
         .categories {
             background-color: #f1f1f1;
             padding: 50px 5%;
+        }
+        .categories h4{
+            margin-bottom: 50px;
+            text-align: center;
+            color:#461e6d
+        }
+        .goods-image{
+            width: 15%;
+            height: 15%;
+            cursor: pointer;
+            object-fit: contain;
+            /* margin-bottom: 0px; */
+            display: inline-block;
+
         }
 
         .category-grid {
@@ -491,6 +514,12 @@
             justify-content: center;
             font-size: 16px;
             color: #666;
+        }
+        .category-image img{
+            width: 100%;
+            height: 100%;
+            cursor: pointer;
+            object-fit: contain;
         }
 
         .category-name {
@@ -806,13 +835,13 @@
                         </div> -->
                     </li>
                     <li>
-                        <a href="#products">상품</a>
-                        <!-- div class="submenu">
-                            <a href="#add">상품 등록</a>
-                            <a href="#list">상품 목록</a>
-                            <a href="#category">분류 관리</a>
-                            <a href="#inventory">재고 관리</a>
-                        </div> -->
+                        <a href="#products">주문 하기</a>
+                        <div class="submenu">
+                            <a href="#add">LS&GS REPBOOK</a>
+                            <a href="#list">GrapeSEED Writer</a>
+                            <a href="#category">GrapeSEED Reader</a>
+                            <a href="#inventory">GrapeSEED ClassRoom Materials</a>
+                        </div>
                     </li>
                     <li>
                         <a href="#categories">카테고리</a>
@@ -854,71 +883,86 @@
         </section>
 
         <section class="products" id="products">
-            <h2 class="section-title">인기 상품</h2>
+            <h2 class="section-title">GrapeSEED 교재</h2>
             <div class="product-grid">
                 <div class="product-card">
-                    <div class="product-image">상품 이미지</div>
+                    <div class="product-image"><img src="{{ asset('images/U01_REP-Cover_thumbnail.png') }}" alt="프리미엄 티셔츠"></div>
                     <div class="product-info">
-                        <div class="product-title">프리미엄 티셔츠</div>
-                        <div class="product-price">29,000원</div>
+                        <div class="product-title">Unit 1 REPBOOK</div>
+                        <!-- <div class="product-price">29,000원</div> -->
                     </div>
                 </div>
                 <div class="product-card">
-                    <div class="product-image">상품 이미지</div>
+                    <div class="product-image"><img src="{{ asset('images/U02_REP-Cover_thumbnail.png') }}" alt="Unit 2 REPBOOK"></div>
                     <div class="product-info">
-                        <div class="product-title">데님 재킷</div>
-                        <div class="product-price">89,000원</div>
+                        <div class="product-title">Unit 2 REPBOOK</div>
+                        <!-- <div class="product-price">89,000원</div> -->
                     </div>
                 </div>
                 <div class="product-card">
-                    <div class="product-image">상품 이미지</div>
+                    <div class="product-image"><img src="{{ asset('images/U03_REP-Cover_thumbnail.png') }}" alt="Unit 3 REPBOOK"></div>
                     <div class="product-info">
-                        <div class="product-title">스니커즈</div>
-                        <div class="product-price">129,000원</div>
+                        <div class="product-title">Unit 3 REPBOOK</div>
+                        <!-- <div class="product-price">129,000원</div> -->
                     </div>
                 </div>
                 <div class="product-card">
-                    <div class="product-image">상품 이미지</div>
+                    <div class="product-image"><img src="{{ asset('images/U04_REP-Cover_thumbnail.png') }}" alt="Unit 4 REPBOOK"></div>
                     <div class="product-info">
-                        <div class="product-title">크로스백</div>
-                        <div class="product-price">59,000원</div>
+                        <div class="product-title">Unit 4 REPBOOK</div>
+                        <!-- <div class="product-price">59,000원</div> -->
                     </div>
                 </div>
                 <div class="product-card">
-                    <div class="product-image">상품 이미지</div>
+                    <div class="product-image"><img src="{{ asset('images/U05_REP-Cover_thumbnail.png') }}" alt="Unit 5 REPBOOK"></div>
                     <div class="product-info">
-                        <div class="product-title">원피스</div>
-                        <div class="product-price">79,000원</div>
+                        <div class="product-title">Unit 5 REPBOOK</div>
+                        <!-- <div class="product-price">79,000원</div> -->
                     </div>
                 </div>
                 <div class="product-card">
-                    <div class="product-image">상품 이미지</div>
+                    <div class="product-image"><img src="{{ asset('images/U06_REP-Cover_thumbnail.png') }}" alt="Unit 6 REPBOOK"></div>
                     <div class="product-info">
-                        <div class="product-title">부츠</div>
-                        <div class="product-price">159,000원</div>
+                        <div class="product-title">Unit 6 REPBOOK</div>
+                        <!-- <div class="product-price">159,000원</div> -->
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image"><img src="{{ asset('images/U07_REP-Cover_thumbnail.png') }}" alt="Unit 7 REPBOOK"></div>
+                    <div class="product-info">
+                        <div class="product-title">Unit 7 REPBOOK</div>
+                        <!-- <div class="product-price">159,000원</div> -->
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image"><img src="{{ asset('images/U08_REP-Cover_thumbnail.png') }}" alt="Unit 8 REPBOOK"></div>
+                    <div class="product-info">
+                        <div class="product-title">Unit 8 REPBOOK</div>
+                        <!-- <div class="product-price">159,000원</div> -->
                     </div>
                 </div>
             </div>
         </section>
 
         <section class="categories" id="categories">
-            <h2 class="section-title">카테고리</h2>
+            <h2 class="section-title"><a href="https://grapeseedkorea.co.kr/shop/" target="_blank"><img src="{{ asset('images/자산 37.png') }}" alt="GrapeSEED Goods" class="goods-image"></a></h2>
+            <h4>스토어 바로가기</h4>
             <div class="category-grid">
                 <div class="category-card">
-                    <div class="category-image">의류</div>
-                    <div class="category-name">의류</div>
+                    <div class="category-image"><img src="{{ asset('images/썸네일_2-2_Singer-Letter Phonogram Poster.png') }}" alt="GS Poster"></div>
+                    <div class="category-name">Single Letter Phonogram Poster</div>
                 </div>
                 <div class="category-card">
-                    <div class="category-image">신발</div>
-                    <div class="category-name">신발</div>
+                    <div class="category-image"><img src="{{ asset('images/썸네일_3-5_GrapeSEED 쇼핑백.png') }}" alt="GS Shopping Bag"></div>
+                    <div class="category-name">GrapeSEED 쇼핑백</div>
                 </div>
                 <div class="category-card">
-                    <div class="category-image">가방</div>
-                    <div class="category-name">가방</div>
+                    <div class="category-image"><img src="{{ asset('images/Easel.jpg') }}" alt="Liineman Easel"></div>
+                    <div class="category-name">GrapeSEED Mr.Lineman Easel</div>
                 </div>
                 <div class="category-card">
-                    <div class="category-image">액세서리</div>
-                    <div class="category-name">액세서리</div>
+                    <div class="category-image"><img src="{{ asset('images/썸네일_6-1_GS Carpet.png') }}" alt="GS Carpet"></div>
+                    <div class="category-name">GrapeSEED Carpet</div>
                 </div>
             </div>
         </section>
