@@ -52,16 +52,130 @@
             padding: 12px 20px;
             color: #333;
             text-decoration: none;
-            transition: background-color 0.3s;
+            transition: all 0.3s ease;
+            border-radius: 8px;
+            margin: 5px 10px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .sidebar-nav a::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(90, 44, 136, 0.1), transparent);
+            transition: left 0.5s ease;
         }
         
         .sidebar-nav a:hover {
             background-color: #f8f9fa;
+            transform: translateX(10px);
+            box-shadow: 0 4px 15px rgba(90, 44, 136, 0.2);
+            color: #5a2c88;
+        }
+        
+        .sidebar-nav a:hover::before {
+            left: 100%;
+        }
+        
+        .sidebar-nav a:hover svg {
+            transform: rotate(15deg) scale(1.1);
+            color: #5a2c88;
         }
         
         .sidebar-nav a.active {
             background-color: #5a2c88;
             color: white;
+            transform: translateX(5px);
+            box-shadow: 0 4px 20px rgba(90, 44, 136, 0.3);
+        }
+        
+        .sidebar-nav svg {
+            transition: all 0.3s ease;
+        }
+        
+        /* 서브메뉴 스타일 */
+        .sidebar-nav .menu-item {
+            position: relative;
+        }
+        
+        .sidebar-nav .submenu {
+            position: absolute;
+            left: 100%;
+            top: 0;
+            background-color: #fff;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+            border-radius: 8px;
+            padding: 10px 0;
+            min-width: 200px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateX(-10px);
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+        
+        .sidebar-nav .menu-item:hover .submenu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(0);
+        }
+        
+        .sidebar-nav .submenu a {
+            padding: 8px 15px;
+            margin: 2px 5px;
+            font-size: 14px;
+            color: #666;
+        }
+        
+        .sidebar-nav .submenu a:hover {
+            background-color: #5a2c88;
+            color: white;
+            transform: translateX(5px);
+        }
+        
+        /* 사이드바 내의 ul li 호버 효과 */
+        .sidebar-nav a ul {
+            display: none;
+            padding-left: 20px;
+            margin-top: 10px;
+            opacity: 0;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+        }
+        
+        .sidebar-nav a:hover ul {
+            display: block;
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .sidebar-nav a ul li {
+            list-style: none;
+            margin: 5px 0;
+        }
+        
+        .sidebar-nav a ul li a {
+            padding: 8px 15px;
+            margin: 0;
+            font-size: 13px;
+            color: #666;
+            background-color: transparent;
+            border-left: 3px solid transparent;
+            border-radius: 0 8px 8px 0;
+            display: block;
+            transform: none;
+        }
+        
+        .sidebar-nav a ul li a:hover {
+            background-color: #f8f9fa;
+            color: #5a2c88;
+            border-left-color: #5a2c88;
+            transform: translateX(5px);
+            box-shadow: 0 2px 8px rgba(90, 44, 136, 0.1);
         }
         
         .sidebar-nav svg {
@@ -188,20 +302,36 @@
         
         nav ul li {
             margin-right: 20px;
+            position: relative;
+            transition: all 0.3s ease;
+            opacity: 0.8;
+            transform: translateY(0);
         }
         
         nav ul li a {
-            padding: 10px;
+            padding: 10px 15px;
             color:#fff;
             text-decoration: none;
             font-weight: 500;
+            display: block;
+            border-radius: 8px;
+            transition: all 0.3s ease;
         }
         
         nav ul li:hover {
             font-weight: 500;
             background-color:rgb(82, 28, 137);
             border-radius: 10px;
+            opacity: 1;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(82, 28, 137, 0.4);
         }
+        
+        nav ul li:hover a {
+            color: #fff;
+            transform: scale(1.05);
+        }
+
         
         .hero {
             background: linear-gradient(135deg, #5a2c88, #461e6d);
@@ -386,7 +516,7 @@
     <!-- 사이드바 -->
     <aside class="sidebar" :class="{ 'hidden': !sidebarOpen }">
         <div class="sidebar-header">
-            <h3>GrapeSEED 메뉴</h3>
+            <h3>GrapeSEED </h3>
         </div>
         <nav class="sidebar-nav">
             <a href="{{ route('dashboard') }}" class="active">
@@ -401,29 +531,52 @@
                 </svg>
                 프로필
             </a>
-            <a href="#products">
+            <a href="#" class="flex items-center px-4 py-2 text-gray-700 rounded-lg hover:bg-gray-100">
                 <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"></path>
                 </svg>
                 상품 관리
+                <ul>
+                    <li><a href="#">상품 등록</a></li>
+                    <li><a href="#">상품 목록</a></li>
+                    <li><a href="#">상품 수정</a></li>
+                    <li><a href="#">상품 삭제</a></li>
+                </ul>
             </a>
             <a href="#categories">
                 <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path>
                 </svg>
                 카테고리
+                <ul>
+                    <li><a href="#">상품 등록</a></li>
+                    <li><a href="#">상품 목록</a></li>
+                    <li><a href="#">상품 수정</a></li>
+                    <li><a href="#">상품 삭제</a></li>
+                </ul>
             </a>
             <a href="#orders">
                 <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"></path>
                 </svg>
                 주문 관리
+                <ul>
+                    <li><a href="#">상품 등록</a></li>
+                    <li><a href="#">상품 목록</a></li>
+                    <li><a href="#">상품 수정</a></li>
+                    <li><a href="#">상품 삭제</a></li>
+                </ul>
             </a>
             <a href="#customers">
                 <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197m13.5-9a2.5 2.5 0 11-5 0 2.5 2.5 0 015 0z"></path>
                 </svg>
-                고객 관리
+                고객 관리 <ul>
+                    <li><a href="#">상품 등록</a></li>
+                    <li><a href="#">상품 목록</a></li>
+                    <li><a href="#">상품 수정</a></li>
+                    <li><a href="#">상품 삭제</a></li>
+                </ul>
             </a>
             <a href="#settings">
                 <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
