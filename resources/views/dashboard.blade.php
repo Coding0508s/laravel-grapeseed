@@ -97,25 +97,31 @@
             transition: all 0.3s ease;
         }
         
-        /* 서브메뉴 스타일 */
+
+        
+        /* 사이드바 서브메뉴 - 통일된 스타일 */
         .sidebar-nav .menu-item {
             position: relative;
         }
         
-        .sidebar-nav .submenu {
+        .sidebar-nav .menu-item .submenu {
             position: absolute;
             left: 100%;
             top: 0;
             background-color: #fff;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
             border-radius: 8px;
-            padding: 10px 0;
-            min-width: 200px;
+            padding: 15px;
+            min-width: 320px;
             opacity: 0;
             visibility: hidden;
             transform: translateX(-10px);
             transition: all 0.3s ease;
             z-index: 1000;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            gap: 10px;
         }
         
         .sidebar-nav .menu-item:hover .submenu {
@@ -124,52 +130,7 @@
             transform: translateX(0);
         }
         
-        .sidebar-nav .submenu a {
-            padding: 8px 15px;
-            margin: 2px 5px;
-            font-size: 14px;
-            color: #666;
-        }
-        
-        .sidebar-nav .submenu a:hover {
-            background-color: #5a2c88;
-            color: white;
-            transform: translateX(5px);
-        }
-        
-        /* 사이드바 내의 ul li 호버 효과 - 가로 배치 */
-        .sidebar-nav a ul {
-            display: none;
-            position: absolute;
-            left: 100%;
-            top: 0;
-            background-color: #fff;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
-            border-radius: 8px;
-            padding: 15px;
-            min-width: 300px;
-            opacity: 0;
-            transform: translateX(-10px);
-            transition: all 0.3s ease;
-            z-index: 1000;
-            flex-direction: row;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-        
-        .sidebar-nav a:hover ul {
-            display: flex;
-            opacity: 1;
-            transform: translateX(0);
-        }
-        
-        .sidebar-nav a ul li {
-            list-style: none;
-            margin: 0;
-            flex: 0 0 auto;
-        }
-        
-        .sidebar-nav a ul li a {
+        .sidebar-nav .menu-item .submenu a {
             padding: 8px 12px;
             margin: 0;
             font-size: 12px;
@@ -177,25 +138,20 @@
             background-color: #f8f9fa;
             border: 1px solid #e0e0e0;
             border-radius: 6px;
-            display: block;
-            transform: none;
+            text-decoration: none;
             white-space: nowrap;
             transition: all 0.3s ease;
             text-align: center;
             min-width: 80px;
+            display: block;
         }
         
-        .sidebar-nav a ul li a:hover {
+        .sidebar-nav .menu-item .submenu a:hover {
             background-color: #5a2c88;
             color: white;
             border-color: #5a2c88;
             transform: translateY(-2px);
             box-shadow: 0 4px 12px rgba(90, 44, 136, 0.3);
-        }
-        
-        /* 메인 메뉴 항목의 position 설정 */
-        .sidebar-nav a {
-            position: relative;
         }
         
         .sidebar-nav svg {
@@ -607,64 +563,81 @@
                 </svg>
                 프로필
             </a>
-            <a href="#products">
-                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"></path>
-                </svg>
-                상품 관리
-                <ul>
-                    <li><a href="#add-product">상품 등록</a></li>
-                    <li><a href="#product-list">상품 목록</a></li>
-                    <li><a href="#edit-product">상품 수정</a></li>
-                    <li><a href="#inventory">재고 관리</a></li>
-                    <li><a href="#pricing">가격 관리</a></li>
-                </ul>
-            </a>
-            <a href="#">
-                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path>
-                </svg>
-                카테고리
-                <ul>
-                    <li><a href="#category-manage">카테고리 관리</a></li>
-                    <li><a href="#category-add">카테고리 추가</a></li>
-                    <li><a href="#category-sort">정렬 관리</a></li>
-                    <li><a href="#category-display">진열 설정</a></li>
-                </ul>
-            </a>
-            <a href="#orders">
-                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"></path>
-                </svg>
-                주문 관리
-                <ul>
-                    <li><a href="#orders-list">주문 목록</a></li>
-                    <li><a href="#orders-status">주문 상태</a></li>
-                    <li><a href="#shipping">배송 관리</a></li>
-                    <li><a href="#returns">반품/교환</a></li>
-                    <li><a href="#payment">결제 관리</a></li>
-                </ul>
-            </a>
-            <a href="#customers">
-                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197m13.5-9a2.5 2.5 0 11-5 0 2.5 2.5 0 015 0z"></path>
-                </svg>
-                고객 관리
-                <ul>
-                    <li><a href="#customers-list">고객 목록</a></li>
-                    <li><a href="#customer-info">고객 정보</a></li>
-                    <li><a href="#customer-service">고객 서비스</a></li>
-                    <li><a href="#reviews">리뷰 관리</a></li>
-                    <li><a href="#loyalty">멤버십</a></li>
-                </ul>
-            </a>
-            <a href="#settings">
-                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
-                </svg>
-                설정
-            </a>
+            <div class="menu-item">
+                <a href="#products">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"></path>
+                    </svg>
+                    상품 관리
+                </a>
+                <div class="submenu">
+                    <a href="#add-product">상품 등록</a>
+                    <a href="#product-list">상품 목록</a>
+                    <a href="#edit-product">상품 수정</a>
+                    <a href="#inventory">재고 관리</a>
+                    <a href="#pricing">가격 관리</a>
+                </div>
+            </div>
+            <div class="menu-item">
+                <a href="#categories">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path>
+                    </svg>
+                    카테고리
+                </a>
+                <div class="submenu">
+                    <a href="#category-manage">카테고리 관리</a>
+                    <a href="#category-add">카테고리 추가</a>
+                    <a href="#category-sort">정렬 관리</a>
+                    <a href="#category-display">진열 설정</a>
+                </div>
+            </div>
+            <div class="menu-item">
+                <a href="#orders">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"></path>
+                    </svg>
+                    주문 관리
+                </a>
+                <div class="submenu">
+                    <a href="#orders-list">주문 목록</a>
+                    <a href="#orders-status">주문 상태</a>
+                    <a href="#shipping">배송 관리</a>
+                    <a href="#returns">반품/교환</a>
+                    <a href="#payment">결제 관리</a>
+                </div>
+            </div>
+            <div class="menu-item">
+                <a href="#customers">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197m13.5-9a2.5 2.5 0 11-5 0 2.5 2.5 0 015 0z"></path>
+                    </svg>
+                    고객 관리
+                </a>
+                <div class="submenu">
+                    <a href="#customers-list">고객 목록</a>
+                    <a href="#customer-info">고객 정보</a>
+                    <a href="#customer-service">고객 서비스</a>
+                    <a href="#reviews">리뷰 관리</a>
+                    <a href="#loyalty">멤버십</a>
+                </div>
+            </div>
+            <div class="menu-item">
+                <a href="#settings">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                    </svg>
+                    설정
+                </a>
+                <div class="submenu">
+                    <a href="#general">일반 설정</a>
+                    <a href="#security">보안 설정</a>
+                    <a href="#notification">알림 설정</a>
+                    <a href="#theme">테마 설정</a>
+                    <a href="#backup">백업/복원</a>
+                </div>
+            </div>
         </nav>
     </aside>
 
